@@ -13,14 +13,21 @@
   <property name="windowTitle">
    <string>Быки и коровы</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../Desktop/1640290675_new_preview_Susremaster.png</normaloff>../../Desktop/1640290675_new_preview_Susremaster.png</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_3">
     <item row="0" column="0">
      <layout class="QGridLayout" name="gridLayout">
-      <item row="1" column="0">
-       <widget class="QLabel" name="label">
+      <item row="0" column="1">
+       <widget class="QLabel" name="m_label_dw">
         <property name="text">
-         <string>Введите число</string>
+         <string>Не угадали, попробуйте еще...</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -34,6 +41,23 @@
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="m_label_dropcount">
+        <property name="text">
+         <string>Введите число</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="m_pb_checkin">
+        <property name="text">
+         <string>Проверить!</string>
         </property>
        </widget>
       </item>
@@ -51,34 +75,26 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="m_label_dw">
-        <property name="text">
-         <string>Не угадали, попробуйте еще...</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="m_pb_checkin">
-        <property name="text">
-         <string>Проверить!</string>
-        </property>
-       </widget>
-      </item>
      </layout>
     </item>
     <item row="1" column="0">
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="0">
-       <widget class="QTableWidget" name="tableWidget">
+       <widget class="QTableWidget" name="m_tableWidget">
+        <property name="frameShape">
+         <enum>QFrame::WinPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
         <property name="gridStyle">
          <enum>Qt::SolidLine</enum>
         </property>
         <property name="sortingEnabled">
          <bool>false</bool>
+        </property>
+        <property name="columnCount">
+         <number>3</number>
         </property>
         <attribute name="horizontalHeaderCascadingSectionResizes">
          <bool>false</bool>
@@ -105,12 +121,12 @@
         </column>
         <column>
          <property name="text">
-          <string>1</string>
+          <string>Число</string>
          </property>
         </column>
         <column>
          <property name="text">
-          <string>2</string>
+          <string>Результат</string>
          </property>
         </column>
        </widget>
