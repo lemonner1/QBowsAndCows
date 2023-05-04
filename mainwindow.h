@@ -15,7 +15,15 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_m_pb_newgame_clicked();
+
+    void on_m_pb_records_clicked();
+
+    void on_m_pb_checkin_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QString answer;
 };
 #endif // MAINWINDOW_H

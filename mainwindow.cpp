@@ -13,3 +13,19 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_m_pb_newgame_clicked()
+{
+
+}
+
+void MainWindow::on_m_pb_records_clicked()
+{
+
+}
+
+void MainWindow::on_m_pb_checkin_clicked()
+{
+
+}
+
