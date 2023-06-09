@@ -9,17 +9,16 @@ MainWindow::MainWindow(QWidget *parent)
     ui->table_main->setColumnCount(2);
     ui->table_main->setRowCount(rows);
     ui->table_main->setShowGrid(true);
-    ui->table_main->setHorizontalHeaderLabels(QStringList()<<"Number"<<"Farm");
+    ui->table_main->setHorizontalHeaderLabels(QStringList()<<"Число"<<"Результат");
     ui->table_main->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     ui->pb_check->setEnabled(false);
     ui->lineEdit->setEnabled(false);
     ui->lineEdit->setValidator(new QRegularExpressionValidator(QRegularExpression("^([1-9])(?!\\1)([0-9])(?!\\1|\\2)([0-9])(?!\\1|\\2|\\3)([0-9])$"),this));
-
 }
 
 
 void MainWindow::print_file(){
-    record_file("record.txt");
+    QFile record_file("record.txt");
     if (!record_file.open(QIODevice::ReadWrite))
     {
         ui->label_2->setText("file not open");
@@ -28,20 +27,16 @@ void MainWindow::print_file(){
     QByteArray fileData;
     fileData=record_file.readAll();
     QString tmp;
-    QTextStream in(record_file);
-    while (in.atEnd())
+    while (!record_file.atEnd())
     {
-        //tmp=in.readLine(); if (tmp.contains(name_player)){ }
-
-        in>>tmp;
-        if (tmp==name_player)
+        QTextStream in(&record_file);
+        in >> tmp;
+        if (tmp == name_player)
         {
-
-            in>>tmp;
-
+            in >> tmp;
         }
     }
-
+    record_file.close();
 }
 MainWindow::~MainWindow()
 {
@@ -68,7 +63,7 @@ void MainWindow::on_pb_new_game_clicked()
     if (name->flag()==true)
     {   ui->pb_check->setEnabled(true);
         ui->lineEdit->setEnabled(true);
-        ui->label->setText("Try to guess ;)");
+        ui->label->setText("Попробуй угадать");
         bool is_numb=false;
         name_player=name->player_name;
         while (is_numb==false)
@@ -94,7 +89,7 @@ void MainWindow::on_pb_check_clicked()
 {
 
     if( ui->lineEdit->text().length()!=4)
-        ui->label->setText("u should kill morozov now");
+        ui->label->setText("Введи правильное число");
     else
     {
 
@@ -109,7 +104,7 @@ void MainWindow::on_pb_check_clicked()
     rows++;
     if (count_bull==4)
     {
-        ui->label->setText("u won. congr");
+        ui->label->setText("Приветствую вас, чемпион");
         ui->pb_check->setEnabled(false);
         ui->lineEdit->setEnabled(false);
         print_file();

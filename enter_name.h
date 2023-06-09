@@ -19,6 +19,7 @@ public:
     QString show_name();
 
     bool flag();
+    QString player_name;
 
 private slots:
     void on_pb_cancel_clicked();
@@ -31,14 +32,7 @@ private slots:
 private:
     Ui::Enter_name *ui;
 
-protected:
-
-
-    QString player_name;
     bool start;
-
-
-
 };
 
 #endif // ENTER_NAME_H

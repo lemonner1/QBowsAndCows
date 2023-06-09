@@ -25,7 +25,7 @@
     <item row="0" column="1">
      <widget class="QLabel" name="label">
       <property name="text">
-       <string>Game not started</string>
+       <string>Да начнется игра!</string>
       </property>
      </widget>
     </item>

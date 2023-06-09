@@ -34,7 +34,7 @@ bool Enter_name::flag()
 void Enter_name::on_pb_ok_clicked()
 {
     if (ui->line_player->text()=="")
-        ui->lable_note->setText("Enter corect name");
+        ui->lable_note->setText("Введи правильное имя");
     else{
     player_name=ui->line_player->text();
     start=true;
